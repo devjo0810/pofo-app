@@ -1,8 +1,10 @@
 package com.pofo.pofoapp.domain;
 
 import com.pofo.pofoapp.domain.common.BaseEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -25,5 +27,15 @@ public class ArtworkDetail extends BaseEntity {
     private String originFileName;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "artwork_id")
+    @Setter
     private Artwork artwork;
+
+    @Builder
+    public ArtworkDetail(int sortSqnc, String filePath, String originFileName, Artwork artwork) {
+        this.sortSqnc = sortSqnc;
+        this.filePath = filePath;
+        this.originFileName = originFileName;
+        this.artwork = artwork;
+    }
+
 }

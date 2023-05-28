@@ -18,11 +18,19 @@ spring:
 
   redis:
     ssl: false
-    host: 127.0.0.1
+    host: 132.226.227.191
     port: 6379
     password:
+
+  servlet:
+    multipart:
+      max-file-size: 10MB # 파일의 최대 크기 설정
+      max-request-size: 50MB # 요청의 최대 크기 설정
 
 app:
   jwt:
     secret: 1qa2ws3ed
-    expire: 86400000 # ms
+    expire: 12 # hour
+  file:
+    upload:
+      path: /upload/local

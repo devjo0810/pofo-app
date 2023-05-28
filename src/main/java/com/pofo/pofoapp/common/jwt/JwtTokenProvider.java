@@ -20,11 +20,12 @@ public class JwtTokenProvider {
     @Value("${app.jwt.secret}")
     private String secret;
     @Value("${app.jwt.expire}")
-    private int expire;
+    private int expireHour;
+    private final long EXPIRATION_TIME = 1000 * 60 * 60; // 1시간
 
     public String generateToken(Long userId) {
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + expire);
+        Date expiryDate = new Date(now.getTime() + (EXPIRATION_TIME * expireHour));
 
         return Jwts.builder()
                 .setSubject(Long.toString(userId))

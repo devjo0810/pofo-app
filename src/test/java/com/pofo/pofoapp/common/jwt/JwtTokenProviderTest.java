@@ -26,6 +26,7 @@ class JwtTokenProviderTest {
 
         //when
         String token = jwtTokenProvider.generateToken(userId);
+        System.out.println("jwt = " + token);
 
         //then
         Long tokenUserId = jwtTokenProvider.getUserIdFromToken(token);

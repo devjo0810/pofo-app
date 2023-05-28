@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
-public class ArtworkBookmart {
+public class ArtworkBookmark {
     @Id @GeneratedValue
     @Column(name = "bookmark_id")
     private Long id;

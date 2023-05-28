@@ -1,13 +1,13 @@
 package com.pofo.pofoapp.domain;
 
 import com.pofo.pofoapp.domain.common.BaseEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * packageName    : com.pofo.pofoapp.domain
@@ -28,5 +28,18 @@ public class Artwork extends BaseEntity {
     private String category;
     private Long viewCnt;
     private String viewYn;
+    @OneToMany(mappedBy = "artwork", cascade = CascadeType.ALL)
+    private List<ArtworkDetail> artworkDetails = new ArrayList<>();
 
+    @Builder
+    public Artwork(String title, String description, String category, String viewYn) {
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.viewYn = viewYn;
+    }
+    public void addDetail(ArtworkDetail artworkDetail) {
+        artworkDetails.add(artworkDetail);
+        artworkDetail.setArtwork(this);
+    }
 }
