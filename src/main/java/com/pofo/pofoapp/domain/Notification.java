@@ -1,6 +1,7 @@
 package com.pofo.pofoapp.domain;
 
 import com.pofo.pofoapp.domain.common.BaseEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,4 +25,10 @@ public class Notification extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Builder
+    public Notification(String content, User user) {
+        this.content = content;
+        this.user = user;
+    }
 }

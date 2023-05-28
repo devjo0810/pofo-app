@@ -1,4 +1,4 @@
-package com.pofo.pofoapp.user;
+package com.pofo.pofoapp.follow;
 
 import com.pofo.pofoapp.domain.Follow;
 import com.pofo.pofoapp.domain.User;

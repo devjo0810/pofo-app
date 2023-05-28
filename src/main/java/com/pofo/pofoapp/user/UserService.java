@@ -56,6 +56,10 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 
+    @Transactional(readOnly = true)
+    public List<User> findAllByName(String name) {
+        return userRepository.findAllByName(name);
+    }
 //    /**
 //     * 사용자 조회
 //     * @param name

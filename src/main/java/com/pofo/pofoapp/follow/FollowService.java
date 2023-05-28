@@ -1,7 +1,8 @@
-package com.pofo.pofoapp.user;
+package com.pofo.pofoapp.follow;
 
 import com.pofo.pofoapp.domain.Follow;
 import com.pofo.pofoapp.domain.User;
+import com.pofo.pofoapp.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
