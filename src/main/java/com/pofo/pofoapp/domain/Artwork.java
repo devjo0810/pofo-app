@@ -1,6 +1,7 @@
 package com.pofo.pofoapp.domain;
 
 import com.pofo.pofoapp.domain.common.BaseEntity;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Artwork extends BaseEntity {
     @Id @GeneratedValue
     @Column(name = "artwork_id")

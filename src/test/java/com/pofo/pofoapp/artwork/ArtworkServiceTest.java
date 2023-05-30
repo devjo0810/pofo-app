@@ -2,6 +2,8 @@ package com.pofo.pofoapp.artwork;
 
 import com.pofo.pofoapp.domain.Artwork;
 import com.pofo.pofoapp.domain.ArtworkDetail;
+import com.pofo.pofoapp.service.ArtworkDetailService;
+import com.pofo.pofoapp.service.ArtworkService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -67,7 +69,7 @@ class ArtworkServiceTest {
         }
 
         //when
-        Long saveId = artworkService.save(artwork);
+        Long saveId = artworkService.createArtwork(artwork);
 
         //then
         List<ArtworkDetail> details = artworkDetailService.findAllByArtworkId(saveId);

@@ -1,10 +1,10 @@
-package com.pofo.pofoapp.artwork;
+package com.pofo.pofoapp.service;
 
 import com.pofo.pofoapp.domain.ArtworkDetail;
+import com.pofo.pofoapp.repository.ArtworkDetailRepository;
 import com.pofo.pofoapp.util.FileUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.pofo.pofoapp.artwork;
+package com.pofo.pofoapp.repository;
 
 import com.pofo.pofoapp.domain.Artwork;
 import org.springframework.data.jpa.repository.JpaRepository;

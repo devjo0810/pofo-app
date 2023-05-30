@@ -2,6 +2,7 @@ package com.pofo.pofoapp.domain;
 
 import com.pofo.pofoapp.domain.common.BaseEntity;
 import com.pofo.pofoapp.domain.type.UserStatusType;
+import com.pofo.pofoapp.exception.ValidateException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * packageName    : com.pofo.pofoapp.domain
@@ -41,4 +44,5 @@ public class User extends BaseEntity {
         this.password = password;
         this.status = status;
     }
+
 }

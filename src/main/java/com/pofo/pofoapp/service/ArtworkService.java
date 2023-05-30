@@ -1,12 +1,10 @@
-package com.pofo.pofoapp.artwork;
+package com.pofo.pofoapp.service;
 
 import com.pofo.pofoapp.domain.Artwork;
+import com.pofo.pofoapp.repository.ArtworkRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 /**
  * packageName    : com.pofo.pofoapp.artwork
@@ -17,18 +15,15 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class ArtworkService {
 
     final ArtworkRepository artworkRepository;
 
-    public Long save(Artwork artwork) {
+    @Transactional
+    public Long createArtwork(Artwork artwork) {
         artworkRepository.save(artwork);
         return artwork.getId();
-    }
-
-    public Artwork findOne(Long id) {
-        return artworkRepository.findOne(id);
     }
 
 }

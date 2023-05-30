@@ -1,6 +1,7 @@
 package com.pofo.pofoapp.artwork;
 
 import com.pofo.pofoapp.domain.ArtworkDetail;
+import com.pofo.pofoapp.service.ArtworkDetailService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

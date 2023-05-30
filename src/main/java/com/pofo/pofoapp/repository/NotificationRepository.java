@@ -1,4 +1,4 @@
-package com.pofo.pofoapp.notification;
+package com.pofo.pofoapp.repository;
 
 import com.pofo.pofoapp.domain.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;

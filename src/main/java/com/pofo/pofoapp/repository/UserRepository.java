@@ -1,4 +1,4 @@
-package com.pofo.pofoapp.user;
+package com.pofo.pofoapp.repository;
 
 import com.pofo.pofoapp.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.pofo.pofoapp.follow;
+package com.pofo.pofoapp.repository;
 
 import com.pofo.pofoapp.domain.Follow;
 import com.pofo.pofoapp.domain.User;
@@ -21,4 +21,9 @@ public interface FollowRepository extends JpaRepository<Follow, Long> {
     List<Follow> findByFollowerId(@Param("followerId") Long followerId);
     @Query("select f from Follow f where f.followee.id = :followeeId")
     List<Follow> findByFolloweeId(@Param("followeeId") Long followeeId);
+
+    @Query("select f from Follow f where f.follower.id = :followerId and f.followee.id = :followeeId")
+    List<Follow> findAllByFollowerIdAndFolloweeId(
+            @Param("followerId") Long followerId,
+            @Param("followeeId") Long followeeId);
 }
