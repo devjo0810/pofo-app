@@ -1,9 +1,11 @@
 package com.pofo.pofoapp.service;
 
 import com.pofo.pofoapp.domain.User;
+import com.pofo.pofoapp.domain.type.UserStatusType;
 import com.pofo.pofoapp.exception.ValidateException;
 import com.pofo.pofoapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,16 +24,25 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class UserService {
     final UserRepository userRepository;
+    final BCryptPasswordEncoder passwordEncoder;
 
     /**
      * 회원가입
-     * @param user
+     * @param name
+     * @param email
+     * @param password
      * @return userId
      */
     @Transactional
-    public Long join(User user) {
-        validateDuplicateName(user.getName());
-        validateDuplicateEmail(user.getEmail());
+    public Long join(String name, String email, String password) {
+        validateDuplicateName(name);
+        validateDuplicateEmail(email);
+        User user = User.builder()
+                .name(name)
+                .email(email)
+                .password(passwordEncoder.encode(password))
+                .status(UserStatusType.ACTIVE)
+                .build();
         userRepository.save(user);
         return user.getId();
     }
